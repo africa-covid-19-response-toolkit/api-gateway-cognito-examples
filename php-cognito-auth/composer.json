@@ -1,0 +1,18 @@
+{
+    "name": "ethiopia-covid19/api-gateway-cognito-example",
+    "description": "Example application accessing the API Gateway using AWA Cognito Auth",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Henok Mikre",
+            "email": "henok@blencorp.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "scripts": {
+        "test": ["php tests/test.php"]
+    }
+}
