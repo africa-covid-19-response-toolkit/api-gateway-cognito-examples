@@ -27,7 +27,29 @@ const getAccessTokenExample = async () => {
 
 
 /**
- * POST request example
+ * GET request using access token example
+ * ---
+ */
+const getRequestExample = async ({accessToken}) => {
+    try {
+        const response = await fetch(API_END_POINT, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Basic ${accessToken}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        // TODO: cater for 404 errors as won't go into the catch block
+        const jsonData = await response.json()
+        return jsonData
+    } catch(e) {
+        console.error(`Error in getAccessTokenExample --> ${e}`)
+        return null
+    }
+}
+
+/**
+ * POST request using access token example
  */
 const postRequestExample = async ({accessToken, body = {}}) => {
     try {
@@ -43,7 +65,7 @@ const postRequestExample = async ({accessToken, body = {}}) => {
         const jsonData = await response.json()
         return jsonData
     } catch(e) {
-        console.error(`Error in getAccessTokenExample --> ${e}`)
+        console.error(`Error in postRequestExample --> ${e}`)
         return null
     }
 }
@@ -54,15 +76,21 @@ const postRequestExample = async ({accessToken, body = {}}) => {
  */
 const init = async () => {
     const accessTokenData = await getAccessTokenExample()
-    console.log('Got accessTokenData ~~~~>>>', accessTokenData);
-
-    if (accessTokenData) {
+    
+    if (accessTokenData && !accessTokenData.error) {
+        console.log('Got accessTokenData ~~~~>>>', accessTokenData);
         const {access_token: accessToken } = accessTokenData
+
+        // Do GET
+        const getResponse = await getRequestExample({accessToken})
+        console.log('Got getResponse ~~~~>>>', getResponse);
+
+        // Do POST
         const postResponse = await postRequestExample({accessToken, body: {}})
         console.log('Got postResponse ~~~~>>>', postResponse);
 
     } else {
-        console.log(`Failed to get accessTokenData`)
+        console.error('Error getting accessTokenData ~~~~>>>', accessTokenData)
     }
 }
 
