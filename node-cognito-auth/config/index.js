@@ -3,7 +3,7 @@
  * It should be injected during runtime using an environment variable e.g. AUTHORIZATION_KEY=<YOUR_PRIVATE_KEY> node index
  * More info here: https://12factor.net/config
  */
-export const AUTHORIZATION_KEY = process.env.AUTHORIZATION_KEY
+export const AUTHORIZATION_KEY = Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`).toString('base64')
 
 
 /**
