@@ -1,0 +1,19 @@
+{
+  "name": "node-js-oauth-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon -r esm ."
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.2"
+  },
+  "engines": {
+    "node": "12"
+  }
+}
