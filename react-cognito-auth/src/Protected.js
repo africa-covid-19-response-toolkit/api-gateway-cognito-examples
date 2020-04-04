@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 
 import Amplify from 'aws-amplify';
 import { awsconfig, API_END_POINT } from './config';
@@ -68,11 +67,13 @@ const Protected = (props) => {
       {jwtToken &&
         <div>
           {/* Outputting the data for demo purposes */}
-          <strong>JWT token passed into the component from Amplify</strong>: 
-          <pre>{jwtToken}</pre>
+          <h4>JWT token from Amplify</h4> 
+          <pre className="jwt-token">{jwtToken}</pre>
 
           {/* Make req to api using the JWT token as the access token */}
-          <button onClick={handleButtonClick}>Make request</button>
+          <hr />
+          <h4>Make req to API using token</h4>
+          <button className="make-request-btn" onClick={handleButtonClick}>Make request ></button>
           {apiResponse && <pre>{apiResponse}</pre>}
         </div>
       }

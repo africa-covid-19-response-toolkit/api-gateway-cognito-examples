@@ -50,3 +50,16 @@
     transform: rotate(360deg);
   }
 }
+
+.jwt-token {
+  padding: 0 8px;
+  white-space: pre-wrap;      /* CSS3 */   
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera 7 */    
+  word-wrap: break-word;  
+}
+
+.make-request-btn {
+  padding: 10px;
+}
