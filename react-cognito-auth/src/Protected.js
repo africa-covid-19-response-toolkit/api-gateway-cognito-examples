@@ -16,7 +16,6 @@ const makeAuthenticatedRequest = async (jwtToken) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      mode: "no-cors",
     });
 
     // Fetch promise won't reject all errors. E.g. 404 errors instead it will flag the response.ok as false
