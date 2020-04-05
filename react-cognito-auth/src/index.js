@@ -8,11 +8,7 @@ import Router from "./Router";
 
 import { awsconfig } from "./config";
 
-Amplify.configure({
-  Auth: {
-    ...awsconfig,
-  },
-});
+Amplify.configure(awsconfig);
 
 ReactDOM.render(
   <React.StrictMode>
