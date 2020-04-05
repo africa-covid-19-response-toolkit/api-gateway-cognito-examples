@@ -13,8 +13,10 @@ const makeAuthenticatedRequest = async (jwtToken) => {
       method: "GET",
       headers: {
         Authorization: `Bearer ${jwtToken}`,
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
+      mode: "no-cors",
     });
 
     // Fetch promise won't reject all errors. E.g. 404 errors instead it will flag the response.ok as false
@@ -26,7 +28,7 @@ const makeAuthenticatedRequest = async (jwtToken) => {
     const jsonData = await response.json();
     return jsonData;
   } catch (e) {
-    console.error(e);
+    console.error(e.message);
     return null;
   }
 };
